@@ -1,32 +1,17 @@
-import math
-
+points = [(1, 2), (3, 4), (5, 6), (7, 8)]  # Noktaları temsil eden liste
 def euclideanDistance(point1, point2):
-  """
-  This function calculates the Euclidean distance between two points.
 
-  Args:
-      point1: A tuple representing the first point (x1, y1).
-      point2: A tuple representing the second point (x2, y2).
-
-  Returns:
-      The Euclidean distance between the two points.
-  """
   x1, y1 = point1
   x2, y2 = point2
-  return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+  distance = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
+  return distance
+distances = []  # Mesafeleri saklayacak liste
 
-# Define the list of points
-points = [(1, 1), (2, 2), (3, 3), (4, 4)]
-
-# Calculate the distances between all pairs of points
-distances = []
 for i in range(len(points)):
-  for j in range(i + 1, len(points)):
-    distance = euclideanDistance(points[i], points[j])
-    distances.append(distance)
+    for j in range(i+1, len(points)):
+        distance = euclideanDistance(points[i], points[j])
+        distances.append(distance)
 
-# Find the minimum distance
-min_distance = min(distances)
+min_distance = min(distances)  # Minimum mesafeyi bulma
 
-# Print the minimum distance
-print("Minimum distance:", min_distance)
+print("Minimum Öklid Mesafesi:", min_distance)  # Minimum mesafeyi yazdırma
